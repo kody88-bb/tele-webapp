@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title万事通服务</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        a{text-decoration: none;}
+        body{position: relative;}
+       .header{width: 100%;height: 150px;background:url(./image/banner.jpg) no-repeat;background-size: cover;background-position: center;}
+       .main{width: 80%;margin:10% auto; }
+       ul{display: grid;grid-template-columns: repeat(2,1fr);gap: 10px;justify-content: space-between;text-align: center;}
+       li img{width: 235px; height: 180px;border-radius: 10px; transition: all 0.3s ease-in-out;}
+       img:hover{transform: scale(1.1);box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);}
+       p{margin: 10px 0;}
+       button{width: 200px;height: 60px;background: #76a2e6;position:fixed;bottom: 0;transform: translateX(130%);border-radius: 10px;}
+    </style>
+</head>
+<body>
+   <div class="header"></div>
+   <div class="main">
+    <ul>
+        <li>
+            <img src="./image/phone-card.jpg">
+            <p>马来西亚手机卡</p>
+        </li>
+        <li>
+            <img src="./image/visa-del.jpg">
+            <p>迪拜签证取消</p>
+        </li>
+        <li>
+            <img src="./image/安保.jpg">
+            <p>海外安保服务</p>
+        </li>
+        <li>
+            <img src="./image/工签.webp">
+            <p>迪拜工作签证</p>
+        </li>
+        <li>
+            <img src="./image/执照.webp">
+            <p>迪拜/欧洲营业执照</p>
+        </li>
+        <li>
+            <img src="./image/旅游.jpg">
+            <p>迪拜/欧洲旅游服务</p>
+        </li>
+       
+
+    </ul>
+   </div>
+   <a href="https://t.me/xiaoke5223"><button>立即咨询</button></a>
+
+   <script>
+    let tg = window.Telegram.WebApp;
+    tg.expand(); // 让 WebApp 充满屏幕
+    document.getElementById("username").innerText = `你好, ${tg.initDataUnsafe?.user?.first_name || '用户'}`;
+
+    function sendData() {
+        tg.sendData(JSON.stringify({ action: "hello_from_web" })); // 发送数据到 Bot
+        tg.close(); // 关闭 WebApp
+    }
+</script>
+</body>
+</html>
