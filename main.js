@@ -192,3 +192,14 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+document.addEventListener('touchstart', function (e) {
+  const active = document.activeElement;
+  if (
+    active &&
+    (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA') &&
+    !e.target.closest('input') &&
+    !e.target.closest('textarea')
+  ) {
+    active.blur();
+  }
+});
